@@ -1,0 +1,27 @@
+@(tweets: List[twitter4j.Status])
+@import twitter4j._
+
+@main("磯辺焼カウント") {
+  <div class="container">
+  <div class="row">
+    <div class="span9">
+    <table class="table table-striped">
+      <thead>
+        <th>スクリーンネーム</th>
+        <th>ツイート</th>
+        <th>時間</th>
+      </thead>
+      <tbody>
+        @for(tweet <- tweets) {
+          <tr>
+            <td>@tweet.getUser().getScreenName()</td>
+            <td>@tweet.getText()</td>
+            <td>@tweet.getCreatedAt()</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+    </div>
+  </div>
+  </div>
+}

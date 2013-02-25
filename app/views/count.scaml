@@ -1,0 +1,14 @@
+-@(count: Int, tweets: List[twitter4j.Status])
+-@import twitter4j._
+
+-@main("磯辺焼カウント") {
+.container
+  .row
+    .span9
+      -@count
+      table
+        tbody
+          -@for(tweet <- tweets)
+            tr
+              td
+                @tweet.getText()
